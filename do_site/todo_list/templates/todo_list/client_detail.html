@@ -1,0 +1,9 @@
+<h1>{{user.name}}</h1>
+<table>
+    {% for task in user.task_set.all %}
+    <tr>
+        <td><a href="{% url 'task' task.id %}">{{task}}</a></td>
+    </tr>
+
+    {% endfor %}
+</table>

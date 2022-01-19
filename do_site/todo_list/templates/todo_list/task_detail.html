@@ -1,0 +1,3 @@
+<h1>Task: {{detail.title}}<br>Description: {{detail.desc}}</h1>
+<a href="{% url 'update' detail.id %}">edit</a>
+<td><a href="{% url 'delete' detail.id %}">delete</a></td>

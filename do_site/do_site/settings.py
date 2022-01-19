@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#q2p$(w1_#mgrej3p0mk$&tnac_khew%-2fylfo56uv%y$o^q9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['167.99.245.100','127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'todo_list.apps.TodoListConfig',
 ]
 
 MIDDLEWARE = [
@@ -114,6 +115,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+LOGIN_URL = 'login'
 
 STATIC_URL = 'static/'
 
