@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.generic.list import  ListView
 from django.views.generic.detail import DetailView
@@ -11,9 +12,19 @@ from django.contrib.auth import login
 # Create your views here.
 
 
+
+
+
+
 class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
+
+    def get(self, request, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return JsonResponse(context)
+
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -76,7 +87,3 @@ class UserRegister(FormView):
         return super(UserRegister,self).get(*args, **kwargs)
 
 
-
-# class UserDetail(DetailView):
-#     #model = User
-#     context_object_name = 'client'

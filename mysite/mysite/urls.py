@@ -1,4 +1,4 @@
-"""do_site URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -15,16 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls.static import static
-from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('todo_list/', include('todo_list.urls')),
-    path('files', include('files.urls')),
-    #path('task', include('task.urls')),
-    path('auth', include('auth.urls')),
+    path('todo/', include('todo.urls')),
+    path('files/', include('files.urls')),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -1,0 +1,25 @@
+<h1>Список файлов:</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name:</th>
+        <th>Size:</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for file in files %}
+        <tr>
+            <td>{{ file.name }}</td>
+            <td>{{file.file.size}}</td>
+            <td><a href="{% url 'download' file.pk %}"  class = "btn btn-primary btnsm"> Download </a></td>
+            <td> <form method="post" action="{% url 'delete' file.pk %}">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
